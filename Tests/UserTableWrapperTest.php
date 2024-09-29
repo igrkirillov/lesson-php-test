@@ -3,7 +3,7 @@
 namespace Tests;
 
 use Dao\UserTableWrapper as UserTableWrapper;
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 require_once (__DIR__ . '/../autoload.php');
 spl_autoload_register("autoload");
@@ -11,7 +11,7 @@ spl_autoload_register("autoload");
 class UserTableWrapperTest extends TestCase
 {
     /**
-     * @covers \Dao\UserTableWrapper::insert
+     * @covers UserTableWrapper::insert
      */
     public function testInsert()
     {
@@ -30,7 +30,7 @@ class UserTableWrapperTest extends TestCase
     }
 
     /**
-     * @covers \Dao\UserTableWrapper::update
+     * @covers UserTableWrapper::update
      */
     public function testUpdate()
     {
@@ -50,7 +50,7 @@ class UserTableWrapperTest extends TestCase
     }
 
     /**
-     * @covers \Dao\UserTableWrapper::delete
+     * @covers UserTableWrapper::delete
      */
     public function testDelete()
     {
@@ -68,7 +68,7 @@ class UserTableWrapperTest extends TestCase
 
     /**
      * @dataProvider providerTestGet
-     * @covers \Dao\UserTableWrapper::get
+     * @covers UserTableWrapper::get
      */
     public function testGet($initialRows, $id, $name)
     {
