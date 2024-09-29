@@ -1,5 +1,6 @@
 # Tests
 
+## Команда запуска тестов
 ```shell
 ./vendor/bin/phpunit --coverage-html coverage-report
 ```
