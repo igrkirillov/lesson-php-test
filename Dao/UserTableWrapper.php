@@ -17,10 +17,12 @@ class UserTableWrapper implements TableWrapperInterface
 
     public function update(int $id, array $values): array
     {
-        foreach ($this->rows as $row) {
+        foreach ($this->rows as &$row) {
             if ($row['id'] === $id) {
-                $this->rows[$row['id']] = $values;
-                return $values;
+                foreach ($values as $key => $value) {
+                    $row[$key] = $value;
+                }
+                return $row;
             }
         }
         return [];
@@ -28,19 +30,19 @@ class UserTableWrapper implements TableWrapperInterface
 
     public function delete(int $id): void
     {
-        foreach ($this->rows as $row) {
-            if ($row['id'] === $id) {
-                unset($this->rows[$row['id']]);
+        for($i=0; $i < count($this->rows); $i++) {
+            if ($this->rows[$i]['id'] === $id) {
+                unset($this->rows[$i]);
                 break;
             }
         }
     }
 
-    public function get(): array
+    public function get(int $id): array
     {
         foreach ($this->rows as $row) {
             if ($row['id'] === $id) {
-                return $this->rows[$row['id']];
+                return $row;
             }
         }
         return [];
@@ -52,5 +54,13 @@ class UserTableWrapper implements TableWrapperInterface
     public function getRows(): array
     {
         return $this->rows;
+    }
+
+    /**
+     * @param array $rows
+     */
+    public function setRows(array $rows): void
+    {
+        $this->rows = $rows;
     }
 }
