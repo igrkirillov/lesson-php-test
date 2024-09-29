@@ -11,7 +11,7 @@ spl_autoload_register("autoload");
 class UserTableWrapperTest extends TestCase
 {
     /**
-     * @covers UserTableWrapper::insert
+     * @covers \Dao\UserTableWrapper::insert
      */
     public function testInsert()
     {
@@ -30,7 +30,7 @@ class UserTableWrapperTest extends TestCase
     }
 
     /**
-     * @covers UserTableWrapper::update
+     * @covers \Dao\UserTableWrapper::update
      */
     public function testUpdate()
     {
@@ -50,7 +50,7 @@ class UserTableWrapperTest extends TestCase
     }
 
     /**
-     * @covers UserTableWrapper::delete
+     * @covers \Dao\UserTableWrapper::delete
      */
     public function testDelete()
     {
@@ -68,7 +68,7 @@ class UserTableWrapperTest extends TestCase
 
     /**
      * @dataProvider providerTestGet
-     * @covers UserTableWrapper::get
+     * @covers \Dao\UserTableWrapper::get
      */
     public function testGet($initialRows, $id, $name)
     {
