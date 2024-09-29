@@ -10,6 +10,9 @@ spl_autoload_register("autoload");
 
 class UserTableWrapperTest extends TestCase
 {
+    /**
+     * @covers UserTableWrapper::insert
+     */
     public function testInsert()
     {
         // Arrange
@@ -26,6 +29,9 @@ class UserTableWrapperTest extends TestCase
         $this->assertEquals($name, $subject->getRows()[0]["name"]);
     }
 
+    /**
+     * @covers UserTableWrapper::update
+     */
     public function testUpdate()
     {
         // Arrange
@@ -43,6 +49,9 @@ class UserTableWrapperTest extends TestCase
         $this->assertEquals($name, $subject->getRows()[0]["name"]);
     }
 
+    /**
+     * @covers UserTableWrapper::delete
+     */
     public function testDelete()
     {
         // Arrange
@@ -59,6 +68,7 @@ class UserTableWrapperTest extends TestCase
 
     /**
      * @dataProvider providerTestGet
+     * @covers UserTableWrapper::get
      */
     public function testGet($initialRows, $id, $name)
     {
