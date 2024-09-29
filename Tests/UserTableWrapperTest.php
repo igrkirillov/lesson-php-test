@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use Dao\UserTableWrapper;
-use PHPUnit\Framework\TestCase;
+use Dao\UserTableWrapper as UserTableWrapper;
+use PHPUnit\Framework\TestCase as TestCase;
 
 require_once (__DIR__ . '/../autoload.php');
 spl_autoload_register("autoload");
